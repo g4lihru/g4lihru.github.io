@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+
+<head itemscope itemtype="http://schema.org/Article">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:site_name" content="SIGMA 24" />
+    <meta property="og:title" itemprop="name" content="SIGMA 24 | Home" />
+    <meta property="og:image" content="https://sigma-24.web.app/img/home/logo.png" />
+    <link itemprop="image" href="https://sigma-24.web.app/img/home/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:url" content="https://sigma-24.web.app/splash/story.html" />
+    <meta property="og:description" itemprop="description" content="Kumpulan Visual Story SIGMA 24 yang dibuat sebagai menghargai karya, kejuaraan, desain, kenangan SIGMA 24" />
+    <meta property="fb:app_id" content="850756429062002" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="SIGMA 24">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="agektmr" />
+    <meta name="description" content="Organisasi SIGMA 24" />
+    <meta charset="UTF-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#023b4d" />
+
+    <link rel="icon" href="http://sigma-24.web.app/img/Fevicon.png" type="image/png">
+    <link rel="manifest" href="webmanifest.json">
+    <link rel="apple-touch-icon" href="https://sigma-24.web.app/img/Fevicon.png">
+    <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+</head>
+
+<style>
+    .mySlides {
+        display: none;
+    }
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    /* Caption text */
+    
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    /* Number text (1/3 etc) */
+    
+    .numbertext {
+        color: #f2f2f2;
+        font-size: 18px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+    /* The dots/bullets/indicators */
+    
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #f98537;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    
+    .active {
+        background-color: #023b4d;
+    }
+    /* Fading animation */
+    
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    /* On smaller screens, decrease text size */
+    
+    @media only screen and (max-width: 300px) {
+        .text {
+            font-size: 11px
+        }
+    }
+    
+    .modal1 {
+        position: fixed;
+        z-index: 1.2;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
+    .modal-content1 {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        width: 100%;
+        box-shadow: 0 5px 8px 0 rgba(0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0.2);
+    }
+    
+    .closesBtn1 {
+        color: red;
+        float: right;
+        font-size: 30px;
+    }
+    
+    .closesBtn:hover,
+    .closesBtn:focus {
+        color: black;
+        display: block;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    @-webkit-keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @font-face {
+        font-family: 'AcuminPro';
+        src: url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro/AcuminPro.eot?#iefix") format("embedded-opentype"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro/AcuminPro.svg#AcuminPro") format("svg"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro/AcuminPro.woff") format("woff"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro/AcuminPro.ttf") format("truetype");
+    }
+    
+    @font-face {
+        font-family: "AcuminPro-Bold";
+        src: url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro-Bold/AcuminPro-Bold.eot?#iefix") format("embedded-opentype"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro-Bold/AcuminPro-Bold.svg#AcuminPro-Bold") format("svg"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro-Bold/AcuminPro-Bold.woff") format("woff"), url("https://cdn-production-assets-kly.akamaized.net/assets/fonts/liputan6/AcuminPro-Bold/AcuminPro-Bold.ttf") format("truetype");
+        font-weight: 700;
+    }
+    
+    .amp-stories {
+        width: 100%;
+        background-color: #000;
+    }
+    
+    .amp-stories__container-title {
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 58px;
+        border-bottom: 1px;
+        border-bottom-color: #3e3e3e;
+        border-bottom-style: solid;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: fixed;
+        z-index: 2;
+        background-color: #000;
+        line-height: 0;
+    }
+    
+    @media only screen and (min-width: 1px) and (max-width: 374px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__container-title {
+            height: 64px;
+        }
+    }
+    
+    @media only screen and (min-width: 375px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__container-title {
+            height: 64px;
+        }
+    }
+    
+    .amp-stories__container-title span {
+        font-family: "AvenirNext";
+        font-size: 23px;
+        font-weight: bold;
+        font-stretch: condensed;
+        line-height: 1;
+        text-align: center;
+        color: #000000;
+        padding: 0 5px;
+        background-color: #fff;
+        text-transform: uppercase;
+    }
+    
+    .amp-stories__title--hide {
+        display: none;
+    }
+    
+    .amp-stories__container-content {
+        min-width: 100%;
+        width: 100px;
+        border-top: solid 1px #3e3e3e;
+        border-bottom: solid 1px #3e3e3e;
+        padding-top: 57px;
+    }
+    
+    .amp-stories__contents {
+        padding-top: 40px;
+        padding-left: 0px;
+        width: 832px;
+        margin: 0 auto;
+    }
+    
+    @media only screen and (min-width: 1px) and (max-width: 374px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__contents {
+            width: 304px;
+            padding-top: 20px;
+        }
+    }
+    
+    @media only screen and (min-width: 375px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__contents {
+            width: 370px;
+            padding-top: 20px;
+        }
+    }
+    
+    @media only screen and (min-width: 481px) and (max-width: 680px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__contents {
+            width: 416px;
+            padding-top: 20px;
+        }
+    }
+    
+    @media only screen and (min-width: 681px) and (max-width: 959px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__contents {
+            width: 624px;
+        }
+    }
+    
+    @media only screen and (min-width: 960px) and (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__contents {
+            width: 832px;
+        }
+    }
+    
+    .amp-stories__contents::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    
+    .amp-stories__item {
+        width: 192px;
+        height: 304px;
+        position: relative;
+        display: inline-block;
+        z-index: 1;
+        -webkit-animation: fadein 2s;
+        animation: fadein 2s;
+        overflow: hidden;
+    }
+    
+    .amp-stories__item img {
+        width: 100%;
+    }
+    
+    @media only screen and (min-width: 1px) and (max-width: 374px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__item {
+            width: 288px;
+            height: 450px;
+            margin: 0px 8px 20px 8px;
+        }
+    }
+    
+    @media only screen and (min-width: 375px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__item {
+            width: 165px;
+            height: 261px;
+            margin: 10px 10px;
+        }
+    }
+    
+    .amp-stories__link {
+        text-decoration: none;
+    }
+    
+    .amp-stories__link::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: -1%;
+        left: 0;
+        right: 0;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#0c0c0c));
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #0c0c0c);
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#0c0c0c));
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #0c0c0c);
+        z-index: 1;
+    }
+    
+    .amp-stories__background-image {
+        position: absolute;
+        left: 0px;
+    }
+    
+    .amp-stories__tag {
+        position: relative;
+        display: none;
+        text-transform: uppercase;
+        font-family: "AcuminPro";
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+        text-align: center;
+        color: #ffffff;
+        padding: 5px 10px;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        z-index: 1;
+        padding-top: 7px;
+    }
+    
+    .amp-stories__item-content-container {
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+    
+    .amp-stories__content-date-type {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 5px;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .amp-stories__type {
+        margin: 0px;
+        text-transform: uppercase;
+        font-family: "AcuminPro";
+        font-size: 10px;
+        padding: 6px 6px 3px 6px;
+        background-color: #ffffff;
+        text-align: center;
+        color: #333333;
+        border-radius: 3px;
+        z-index: 1;
+    }
+    
+    .amp-stories__date {
+        margin: 0px;
+        font-family: "AcuminPro";
+        font-size: 10px;
+        line-height: 1;
+        text-align: left;
+        color: #ffffff;
+        padding: 6px 10px;
+        z-index: 1;
+        display: none;
+    }
+    
+    @media only screen and (min-width: 1px) and (max-width: 374px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__date {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+    
+    @media only screen and (min-width: 375px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__date {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+    
+    @media only screen and (min-width: 481px) and (max-width: 680px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__date {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+    
+    @media only screen and (min-width: 960px) and (max-width: 1199px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__date {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+    
+    @media only screen and (min-width: 681px) and (max-width: 959px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__date {
+            padding: 0px 0px 0px 5px;
+        }
+    }
+    
+    .amp-stories__title {
+        margin: 0px;
+        font-family: "AcuminPro";
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 1.4;
+        text-align: left;
+        color: #ffffff;
+        z-index: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        position: relative;
+        height: 66px;
+    }
+    
+    @media only screen and (min-width: 1px) and (max-width: 374px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__title {
+            font-size: 14px;
+            position: relative;
+            height: 54px;
+        }
+    }
+    
+    @media only screen and (min-width: 375px) and (max-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+        .amp-stories__title {
+            font-size: 14px;
+            position: relative;
+            height: 54px;
+        }
+    }
+    
+    .amp-stories__load-more {
+        font-family: "AcuminPro";
+        font-weight: bold;
+        text-align: center;
+        color: #cecece;
+        padding: 7px 45px 4px 45px;
+        display: inline-block;
+        position: relative;
+        background-color: #000000;
+        border: solid 1px #cecece;
+        border-radius: 3px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        text-transform: uppercase;
+        margin-bottom: 60px;
+        margin-top: 10px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+    
+    .amp-stories__load-more--hide {
+        -webkit-animation: fadein 2s;
+        animation: fadein 2s;
+        display: none;
+    }
+    
+    .copy-right {
+        padding: 15px 0px 45px 0px;
+        width: 100%;
+        font-family: "AcuminPro";
+        font-size: 14px;
+        line-height: 1.71;
+        text-align: center;
+        color: #999999;
+        background-color: #000000;
+    }
+    
+    .add-button {
+        position: absolute;
+        top: 1px;
+        left: 1px;
+    }
+</style>
+
+<body>
+    <div class="header-bg">
+        <button class="add-button">Add to home screen</button>
+        <div class="site-branding"></div>
+        <!--================Header Menu Area =================-->
+        <header class="header_area">
+            <div class="main_menu">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container box_1620">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <a class="navbar-brand logo_h" href="index.html"><img src="./output-onlinejpgtools (3).png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    					</button>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                            <ul class="nav navbar-nav menu_nav justify-content-end">
+                                <li class="nav-item submenu dropdown">
+                                    <a href="index.html" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a></li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kejuaraan</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2014.html">Kejuaraan
+    											2014</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2015.html">Kejuaraan
+    											2015</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2016.html">Kejuaraan
+    											2016</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2017.html">Kejuaraan
+    											2017</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2018.html">Kejuaraan
+    											2018</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2019.html">Kejuaraan
+    											2019</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kejuaraan/html/Kejuaraan 2020.html">Kejuaraan
+    											2020</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kegiatan</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2014.html">Kegiatan
+    											2014</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2015.html">Kegiatan
+    											2015</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2016.html">Kegiatan
+    											2016</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2017.html">Kegiatan
+    											2017</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2018.html">Kegiatan
+    											2018</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2019.html">Kegiatan
+    											2019</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kegiatan/html/Kegiatan 2020.html">Kegiatan
+    											2020</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kepengurusan SIGMA 24</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2014.html">Kepengurusan 2014</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2015.html">Kepengurusan 2015</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2016.html">Kepengurusan 2016</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2017.html">Kepengurusan 2017</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2018.html">Kepengurusan 2018</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2019.html">Kepengurusan 2019</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/Kepengurusan/html/Kepengurusan 2020.html">Kepengurusan 2020</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="//sigma-24.web.app/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="userAuth unauthenticated pull-right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Login</button>
+                    </div>
+                    <div class="userAuth authenticated pull-right">
+                        <button type="button" class="btn btn-success" id="logout">Logout</button>
+                    </div>
+                </nav>
+                <marquee> MUDA CERDAS BERPRESTASI </marquee>
+            </div>
+        </header>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="Register" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="registerForm" method="POST">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="registerModalLabel">Register</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">First Name:</label>
+                            <input type="text" class="form-control" id="registerFirstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Last Name:</label>
+                            <input type="text" class="form-control" id="registerLastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Email:</label>
+                            <input type="text" class="form-control" id="registerEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Password:</label>
+                            <input type="password" class="form-control" id="registerPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Confirm Password:</label>
+                            <input type="password" class="form-control" id="registerConfirmPassword">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="doRegister">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="loginForm" method="POST">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="loginModalLabel">Login</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label">Email:</label>
+                            <input type="text" class="form-control" id="loginEmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Password:</label>
+                            <input type="password" class="form-control" id="loginPassword">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="doLogin">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="Add Contact" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" id="contactForm" name="contactForm">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="addContactModalLabel">Add Contact</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" required placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" required placeholder="Enter Email">
+                        </div>
+                        <h3>Location</h3>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">State</label>
+                            <input type="text" class="form-control" id="state" placeholder="Enter State">
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">Zip</label>
+                            <input type="text" class="form-control" id="zip" placeholder="Enter Zip Code">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary addValue">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="Message" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="messageModalLabel">Message</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-footer">
+                    <div class="pre-auth">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                        <span class="">
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                            data-target="#registerModal">Register</button>
+                        <button type="submit" class="btn btn-success" data-dismiss="modal" data-toggle="modal"
+                            data-target="#loginModal">Login</button>
+                    </span>
+                    </div>
+                    <div class="post-auth"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================Header Menu Area =================-->
+    <main class="side-main ">
+        <!--================ Hero sm Banner start =================-->
+        <section class="hero-banner mb-30px ">
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-7 ">
+                        <div class="hero-banner__img ">
+                            <img class="img-fluid " src="img/banner/hero-banner.png " alt=" ">
+                        </div>
+                    </div>
+                    <div class="col-lg-5 pt-5 ">
+                        <div class="hero-banner__content ">
+                            <h1>SIGMA 24</h1>
+                            <p>Ekstrakurikuler SIGMA 24 bergerak di bidang penelitian dan karya ilmiah di SMAN 24 Kabupaten Tangerang</p>
+                            <a id="modalBtn1" class="button bg " data-toggle="modal">Get Started</a>
+                        </div>
+                        <div id="simpleModal1" class="modal1 col-md-12">
+                            <div class="modal-content modal-content1">
+                                <div class="modal-header modal-header1">
+                                    <div class="userAuth unauthenticated pull-right">
+                                        <a class="navbar-brand logo_h" style="display: block; position: center" href=" index.html "><img src="./output-onlinejpgtools (3).png " alt=" "></a>
+                                    </div>
+                                </div>
+                                <div class="modal-body ">
+                                    <span class="closeBtn closesBtn1 ">&times;</span>
+                                    <h3 align="center ">Info terbaru</h3>
+                                    <div class="slideshow-container">
+
+                                        <div class="mySlides fade">
+                                            <div class="numbertext">1 / 4</div>
+                                            <img src="./Kejuaraan/130139341_200700294894024_3347657626500716357_n.jpg" style="width:100%">
+                                            <div class="text">Juara : 2 SOEDIRMAN PAPER COMPETITION</div>
+                                        </div>
+
+                                        <div class="mySlides fade">
+                                            <div class="numbertext">2 / 4</div>
+                                            <img src="Perlombaan/IMG-20200829-WA0064.jpg" style="width:100%">
+                                            <div class="text">Juara : 1 Flight X17 2020 NFBS(Nurul Fikri Boarding School) Serang</div>
+                                        </div>
+
+                                        <div class="mySlides fade">
+                                            <div class="numbertext">3 / 4</div>
+                                            <img src="Perlombaan/IMG-20200829-WA0077.jpg" style="width:100%">
+                                            <div class="text">Juara : 3 LKTIN Social Harmony Tadris IPS IAIN Tulungagung Jawa Timur</div>
+                                        </div>
+
+                                        <div class="mySlides fade">
+                                            <div class="numbertext">4 / 4</div>
+                                            <img src="Perlombaan/photo6219598612023848277.jpg" style="width:100%">
+                                            <div class="text">Juara : 3 OPSI Provinsi</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align:center">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+
+                                    <div class="modal-footer modal-footer1 ">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script data-ad-client="ca-pub-4786210224596431 " async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js "></script>
+                </div>
+        </section>
+        <!--================ Hero sm Banner end =================-->
+
+        <!--================ Feature section start =================-->
+        <section class="section-margin ">
+            <div class="container ">
+                <div class="section-intro pb-85px text-center ">
+                    <h2 class="section-intro__title ">PENDAHULUAN</h2>
+                    <p class="section-intro__subtitle " align="justify ">Ekstrakurikuler Kelompok Ilmiah Remaja atau biasa disebut KIR merupakan salah satu ektrakurikuler yang ada di SMA Negeri 24 Kab.Tangerang. Ekstrakurikuler ini bernama Science Group SMA Negeri 24 Kab.Tangerang atau biasa disebut dengan
+                        SIGMA 24. Ekstrakurikuler ini sudah ada sejak SMA Negeri 24 Kab.Tangerang berdiri, yaitu sejak tahun 2007. KIR merupakan sebuah wadah bagi siswa/i yang ingin mengembangkan minat dan bakatnya dalam bidang penelitian ilmu pengetahuan
+                        dan teknologi. KIR juga bertujuan untuk meningkatkan kreativitas dan kemampuan secara ilmiah, serta mendorong siswa/i untuk dapat berpikir secara kritis. Pada umumnya, setiap organisasi kepengurusan memiliki program kerja yang
+                        dibuat pada awal masa jabatan kepengurusan. Kemudian, di akhir masa jabatan kepengurusan akan dibuat laporan pertanggungjawaban yang akan menjadi tolak ukur bagi pengurus atas tugas yang telah diemban selama menjabat menjadi pengurus.
+                        Science Group SMAN 24 Kab. Tangerang tentu memiliki sebuah organisasi kepengurusan. Pengurus (fungsionaris) dalam organisasi ini bertugas sebagai penggerak demi kelancaran berjalannya setiap kegiatan yang berlangsung di ekstrakurikuler
+                        KIR. Setiap bagian kepengurusan memiliki program kerjanya masing-masing.
+                    </p>
+                    <br />
+                    <div class="col-lg-12 ">
+                        <div class="home-row-head ">
+                            <h2 class="heading ">Peta SIGMA 24</h2>
+                            <small>SMAN 24 Kabupaten Tangerang</small>
+                        </div>
+                        <div id="google-map " style="height: 450; position: relative; overflow: hidden; ">
+                            <iframe class="col-lg-12 col-md-12 col-xs-12 col-sm-12 col-12 " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8380061955045!2d106.57077851430955!3d-6.152444762017501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff0da25ebcb5%3A0xbbe7074fd04c52e!2sSMAN%2024%20Kab.Tangerang!5e0!3m2!1sid!2sid!4v1585376428168!5m2!1sid!2sid "
+                                width="600 " height="450 " frameborder="0 " style="border:0; " allowfullscreen=" " aria-hidden="false " tabindex="0 ">
+                                    <div id="dokumen "></div>
+                                    <html>
+                                        <head></head>
+                                        <body></body>
+                                    </html>
+                                </iframe>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="container ">
+                        <div class="row ">
+                            <div class="col-lg-4 ">
+                                <div class="card-feature text-center text-lg-left mb-4 mb-lg-0 ">
+                                    <span class="card-feature__icon ">
+                                        <i class="fas fa-history mx-auto " aria-hidden="true "></i>
+                                    </span>
+                                    <h3 class="card-feature__title ">History SIGMA 24</h3>
+                                    <p class="card-feature__subtitle " align="justify ">Ekstrakurikuler ini sudah ada sejak SMA Negeri 24 Kab.Tangerang berdiri, yaitu sejak tahun 2007. KIR merupakan sebuah wadah bagi siswa/i yang ingin mengembangkan minat dan bakatnya dalam bidang penelitian ilmu pengetahuan
+                                        dan teknologi.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 ">
+                                <div class="card-feature text-center text-lg-left mb-4 mb-lg-0 ">
+                                    <span class="card-feature__icon ">
+                                        <i class="fas fa-crosshairs mx-auto " aria-hidden="true "></i>
+                                    </span>
+                                    <h3 class="card-feature__title ">AIM SIGMA 24</h3>
+                                    <p class="card-feature__subtitle ">Didirikan organisasi SIGMA 24 bertujuan untuk meningkatkan kreativitas dan kemampuan secara ilmiah, serta mendorong siswa/i untuk dapat berpikir secara kritis.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 ">
+                                <div class="card-feature text-center text-lg-left mb-4 mb-lg-0 ">
+                                    <span class="card-feature__icon ">
+                                        <i class="ti-headphone-alt "></i>
+                                    </span>
+                                    <h3 class="card-feature__title ">Customer Kami</h3>
+                                    <p class="card-feature__subtitle ">Dalam hal marketing kami siap membantu costomer kami bisa melalui youtube, instagram, ataupun email dalam bertanya mengenai organisasi ini.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--================ Feature section end =================-->
+
+        <!--================ about section start =================-->
+        <section class="section-padding--small bg-magnolia ">
+            <div class="container ">
+                <div class="row no-gutters align-items-center ">
+                    <div class="col-md-5 mb-5 mb-md-0 ">
+                        <div class="about__content ">
+                            <h2>Profile SIGMA 24</h2>
+                            <p>Video profile SIGMA menjelaskan organisasi SIGMA 24 diantaranya Departemen, Kegiatan, Anggota, serta angkatan yang bertujuan untuk mengajak kalian bergabung dengan organisasi SIGMA 24</p>
+                        </div>
+                    </div>
+                    <div class="embed-responsive embed-responsive-16by9 ">
+                        <iframe class="embed-responsive-item " src="https://www.youtube.com/embed/VpL9XJDu8gU " frameborder="0 " allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture " allowfullscreen>
+                            </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ about section end =================-->
+
+        <!--================ Offer section start =================-->
+        <section class="section-margin ">
+            <div class="container ">
+                <div class="section-intro pb-85px text-center ">
+                    <h2 class="section-intro__title ">Keahlian SIGMA 24</h2>
+                    <p class="section-intro__subtitle " align="justify ">SIGMA 24 mempunyai keahlian dalam membangun organisasi ini diantaranya yaitu :</p>
+                </div>
+
+                <div class="row ">
+                    <div class="col-lg-6 ">
+
+                        <div class="row offer-single-wrapper ">
+                            <div class="col-lg-6 offer-single ">
+                                <div class="offer-single__content text-center ">
+                                    <span class="offer-single__icon ">
+                                            <i class="fas fa-palette "></i>
+                                        </span>
+                                    <h4>Desain Grafis</h4>
+                                    <p align="justify ">Desain grafis sangat dibutuhkan untuk membuat sesautu yang berhubungan denagn produk di organisasi SIGMA 24</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 offer-single ">
+                                <div class="offer-single__content text-center ">
+                                    <span class="offer-single__icon ">
+                                            <i class="fas fa-code "></i>
+                                        </span>
+                                    <h4>Coding</h4>
+                                    <p align="justify ">Coding adalah pengetahuan untuk menyelesaikan permasalahan yang berhubungan erat dengan teknologi. Coding sangat dibutuhkan dalam organisasi SIGMA 24 sebab bisa membantu suatu system dan membuat produk seprti robot
+                                        dan lain-lainnya.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row offer-single-wrapper ">
+                            <div class="col-lg-6 offer-single ">
+                                <div class="offer-single__content text-center ">
+                                    <span class="offer-single__icon ">
+                                            <i class="fas fa-bullhorn "></i>
+                                        </span>
+                                    <h4>Marketing</h4>
+                                    <p align="justify ">Marketing adalah cara sesorang untuk mempromosikan suatu organisasi aga organisasi tersebut bisa dikenang oleh masyarakat dan menambah trafic dalam kunjungan.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 offer-single ">
+                                <div class="offer-single__content text-center ">
+                                    <span class="offer-single__icon ">
+                                            <i class="fas fa-file-alt "></i>
+                                        </span>
+                                    <h4>Analisa Data</h4>
+                                    <p align="justify ">Analisa data adalah untuk menghitung dan menganalis suatu data yang nanti akan diproses dan dikeolah didalam organisasi tersebut.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="offer-single__img ">
+                            <img class="img-fluid " src="img/home/offer.png " alt=" ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--================ Offer section end =================-->
+
+        <!--================ Solution section start =================-->
+        <section class="section-padding--small bg-magnolia ">
+            <div class="container ">
+                <div class="row align-items-center pt-xl-3 pb-xl-5 ">
+                    <div class="col-lg-6 ">
+                        <div class="solution__img text-center text-lg-left mb-4 mb-lg-0 ">
+                            <img class="img-fluid" src="img/home/solution.png " alt=" ">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="solution__content ">
+                            <h2>Visual Story SIGMA 24</h2>
+                            <p>Suatu cerita visual yang menggambar organisasi SIGMA 24 dirangkum menjadi beberapa visual story dibawah ini</p>
+                            <ol class="carousel-indicators ">
+                                <li data-target="#carouselExampleIndicators " data-slide-to="0 " class="active "></li>
+                                <li data-target="#carouselExampleIndicators " data-slide-to="1 "></li>
+                                <li data-target="#carouselExampleIndicators " data-slide-to="2 "></li>
+                                <li data-target="#carouselExampleIndicators " data-slide-to="3 "></li>
+                                <li data-target="#carouselExampleIndicators " data-slide-to="4 "></li>
+                            </ol>
+                            <div class="carousel-inner ">
+                                <div class="carousel-item amp-stories__item active " onclick="sendGtmArticle(this) " data-order="46 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-kejuaraan " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.firebaseapp.com/Kejuaraan/Kejuaraan%201.jpg ">
+                                        <div class="amp-stories__tag ">Story SIGMA</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">Kejuaran SIGMA 24</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                Berikut ini adalah daftar anggota SIGMA yang pernah juara
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item amp-stories__item " onclick="sendGtmArticle(this) " data-order="47 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-haribesar " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.firebaseapp.com/Hari%20Besar/Hari%20Guru.jpg ">
+                                        <div class="amp-stories__tag ">Story SIGMA</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">Hari Besar SIGMA 24</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                SIGMA 24 Mengucapkan setiap Hari Besar yang berkenan
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item amp-stories__item " onclick="sendGtmArticle(this) " data-order="48 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-Live Instagram " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.web.app/Foto%20Live/IMG-20200702-WA0025.jpg ">
+                                        <div class="amp-stories__tag ">Story SIGMA</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">Live Instagram SIGMA 24</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                Acara Live Instagram SIGMA 24 untuk mengajak siswa SMAN 24 Kabupaten Tangerang untuk bergabung pada organisasi SIGMA 24
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item amp-stories__item " onclick="sendGtmArticle(this) " data-order="49 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-peduli " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.web.app/sigma%20peduli/SGLebanon.jpg ">
+                                        <div class="amp-stories__tag ">Story SIGMA</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">SIGMA Peduli</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                SIGMA 24 Peduli akan bencana yang terjadi di dalam negari maupun luar negari
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item amp-stories__item " onclick="sendGtmArticle(this) " data-order="45 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-sigmafact " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.firebaseapp.com/sigmafact/SIGMAFACT2.jpeg ">
+                                        <div class="amp-stories__tag ">Story SIGMA</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">SIGMAFACT</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                Fakta - Fakta mengenai terjadian dirangkum dalam SIGMAFACT SIGMA 24
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item amp-stories__item " onclick="sendGtmArticle(this) " data-order="44 ">
+                                    <a href="https://sigma-24.firebaseapp.com/story-pesat " class="amp-stories__link " target="_blank ">
+                                        <img srcset=" " class="amp-stories__background-image lazy " src="https://sigma-24.firebaseapp.com/PESAT/PESAT%202%20Buatan%20Aishna.jpg ">
+                                        <div class="amp-stories__tag ">Story SIGMA 24</div>
+                                        <div class="amp-stories__item-content-container ">
+                                            <div class="amp-stories__content-date-type ">
+                                                <h5 class="amp-stories__type ">PESAT</h5>
+                                            </div>
+                                            <h5 class="amp-stories__title ">
+                                                Pelatihan - Pelatihan dirangkum dalam PESAT
+                                            </h5>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev " href="#carouselExampleIndicators " role="button " data-slide="prev ">
+                            <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+                            <span class="sr-only ">Previous</span>
+                        </a>
+                        <a class="carousel-control-next " href="#carouselExampleIndicators " role="button " data-slide="next ">
+                            <span class="carousel-control-next-icon " aria-hidden="true "></span>
+                            <span class="sr-onlsy ">Next</span>
+                        </a>
+                        <a class="button1 button-light " align="center " href="story.html ">Know More</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </section>
+        <!--================ Solution section end =================-->
+
+        <!--================ Pricing section start =================-->
+        <section class="section-margin ">
+            <div class="container ">
+                <div class="section-intro pb-85px text-center ">
+                    <h2 class="section-intro__title ">PENUTUP</h2>
+                    <p class="section-intro__subtitle " align="justify ">Demikian Penjelasan Organisasi SIGMA 24 kami mengucapkan terima kasih sudah berkunjung di website organisasi kami semoga kalian tertarik dengan organisasi kami dan bergabung bersama kami</p>
+                    <br />
+                    <p class="section-intro__subtitle " align="right ">© SIGMA 24</p>
+                </div>
+            </div>
+        </section>
+        <!--================ Testimonial section end =================-->
+    </main>
+    <!-- ================ start footer Area ================= -->
+    <footer class="footer-area section-gap ">
+        <div>
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-4 ">
+                        <div class="widget contacts ">
+                            <h4 class="widgetheading "><i class="fa fa-phone " aria-hidden="true "></i> &nbsp; Contact Details
+                            </h4>
+                            <hr />
+                            <address style="color: white; ">
+        							<strong style="color: white; ">Address:</strong><br>
+        							<i class="fa fa-map-marker " style="color: white " aria-hidden="true "></i>
+        							&nbsp;Jl. Arwana Raya Pondok Permai Kel. Kutabaru Kec. Pasarkemis Kab. Tangerang
+        							Prov. Banten Indonesia
+        						</address>
+                            <p>
+                                <strong style="color: white; ">Email:</strong><br>
+                                <i class="fa fa-envelope " style="color: white; " aria-hidden="true "></i> &nbsp;<a href="mailto:sigmaduaempat@gmail.com ">sigmaduaempat@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="widget ">
+                            <h4 class="widgetheading "><i class="fas fa-list-ul " aria-hidden="true "></i> &nbsp; Daftar Kegiatan SIGMA</h4>
+                            <hr />
+                            <p>
+                                <li><a href="Product.html ">Product SIGMA</a></li>
+                                <li><a href="Kegiatan.html ">Kegiatan SIGMA</a></li>
+                                <li><a href="Karya-Tulis-Ilmiah.html ">Karya Tulis Ilmiah SIGMA</a></li>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="widget ">
+                            <h4 class="widgetheading ">Kebijakan SIGMA</h4>
+                            <hr />
+                            <div class="_8_j4 ">
+                                <li class="_8_jp "><a class="_8xdz _8xdi _8zgc _8zgd " href="https://sigma-24.firebaseapp.com" style="color:#232323; " target=" ">Tentang</a></li>
+                                <li class="_8_jp "><a class="_8xdz _8xdi _8zgc _8zgd " href="./privacy-policy.html" style="color:#232323; " target=" ">Kebijakan Platform</a></li>
+                                <li class="_8_jp "><a class="_8xdz _8xdi _8zgc _8zgd " href="https://sigma-24.firebaseapp.com/privacy-policy " style="color:#232323; " target=" ">Kebijakan Privasi</a></li>
+                                <li class="_8_jp "><a class="_8xdz _8xdi _8zgc _8zgd " href="https://sigma-24.firebaseapp.com/cookies" style="color:#232323; " target=" ">Cookie</a></li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ">
+                        <div class="widget ">
+                            <h4 class="widgetheading "><i class="fa fa-bookmark " aria-hidden="true "></i>&nbsp;<img src="logo-visual/Visual Story.jpg " href="story.html " aria-hidden="true " style="height: auto; ">
+                            </h4>
+                            <hr style="color: #ffffff; " />
+                            <p>
+                                <i class="fas fa-atom " aria-hidden="true " style="color: #ffffff; "></i>&nbsp;<a href="story-sigmafact.html">SIGMAFACT SIGMA 24</a>
+                            </p>
+                            <br />
+                            <p>
+                                <i class="fas fa-drafting-compass " style="color: #ffffff; "></i>&nbsp; / <i class="fas fa-video " style="color: #ffffff; "></i>&nbsp;<a href="story-pesat.html">PESAT SIGMA 24</a>
+                            </p>
+                            <br />
+                            <p>
+                                <i class="fas fa-trophy " style="color: #ffffff; "></i>&nbsp;<a href="story-kejuaraan.html">Kejuaraan SIGMA 24</a>
+                            </p>
+                            <br />
+                            <p>
+                                <i class="fas fa-calendar-alt " style="color: #ffffff; "></i>&nbsp;<a href="story-haribesar.html">Hari Besar SIGMA 24</a>
+                            </p>
+                            <br />
+                            <p>
+                                <i class="fas fa-crosshairs " style="color: #ffffff; "></i>&nbsp;<a href="story-peduli.html">SIGMA Peduli</a>
+                            </p>
+                            <br />
+                            <p>
+                                <i class="fa fa-instagram " style="color: #ffffff; "></i>&nbsp;<a href="story-Live Instagram.html">Live Instagram SIGMA 24</a>
+                            </p>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget mx-auto "></div>
+                    <div class="footer-bottom row align-items-center text-center text-lg-center mx-auto ">
+                        <p class="footer-text m-0 col-lg-8 col-md-12 mx-auto ">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This Website is made with <i class="fa fa-heart " aria-hidden="true "></i> by <a href="https://sigma-24.firebaseapp.com " target="_blank ">SIGMA 24</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social ">
+                        <p class="_1zwi _1m7h align-content-lg-center mx-auto " style="color: white; ">Ikuti kami</p>
+                        <a data-click-event="footer_social_ig " href="https://sosial.page.link/Instagram" target="_blank " rel="noopener nofollow " data-lynx-mode="async ">
+                            <img class="_6voz _7f2d img " src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxzdmcgd2lkdGg9IjMwcHgiIGhlaWdodD0iMzBweCIgdmlld0JveD0iMCAwIDMwIDMwIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPg0KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTQuMSAoNzY0OTApIC0gaHR0cHM6Ly9za2V0Y2hhcHAuY29tIC0tPg0KICAgIDx0aXRsZT5pbnM8L3RpdGxlPg0KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPg0KICAgIDxkZWZzPg0KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjAlIiB5MT0iMTEwLjE3NjgwOSUiIHgyPSI4Ni44NTIzODQ5JSIgeTI9IjEyLjA5Mzk1NTYlIiBpZD0ibGluZWFyR3JhZGllbnQtMSI+DQogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkVEQjdGIiBvZmZzZXQ9IjAlIj48L3N0b3A+DQogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRjc4RDMxIiBvZmZzZXQ9IjMyLjc3NzIxMTMlIj48L3N0b3A+DQogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRTQ1OTYxIiBvZmZzZXQ9IjYxLjYxMjA3NTMlIj48L3N0b3A+DQogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQTcyQkE2IiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4NCiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8L2RlZnM+DQogICAgPGcgaWQ9ImlucyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+DQogICAgICAgIDxwYXRoIGQ9Ik0xNS41MDAwMTg5LDUgQzE4LjA4MDA0NTEsNSAxOC40MDM1NjE4LDUuMDEwOTM1OTkgMTkuNDE2ODM3OSw1LjA1NzE2ODgzIEMyMC40MjgwMDIxLDUuMTAzMjg4NTQgMjEuMTE4NTkxLDUuMjYzODk2NzUgMjEuNzIyODYxLDUuNDk4NzU2NTUgQzIyLjM0NzU3LDUuNzQxNDk3ODEgMjIuODc3MzYyMSw2LjA2NjMzNDQyIDIzLjQwNTUzMjcsNi41OTQ0NjczIEMyMy45MzM2NjU2LDcuMTIyNjM3OSAyNC4yNTg1MDIyLDcuNjUyNDMwMDMgMjQuNTAxMjgxMiw4LjI3NzEzOTAyIEMyNC43MzYxMDMzLDguODgxNDA5MDIgMjQuODk2NzExNSw5LjU3MTk5NzkxIDI0Ljk0MjgzMTIsMTAuNTgzMTYyMSBDMjQuOTg5MDY0LDExLjU5NjQzODIgMjUsMTEuOTE5OTU0OSAyNSwxNC41MDAwMTg5IEMyNSwxNy4wODAwNDUxIDI0Ljk4OTA2NCwxNy40MDM1NjE4IDI0Ljk0MjgzMTIsMTguNDE2ODM3OSBDMjQuODk2NzExNSwxOS40MjgwMDIxIDI0LjczNjEwMzMsMjAuMTE4NTkxIDI0LjUwMTI4MTIsMjAuNzIyODYxIEMyNC4yNTg1MDIyLDIxLjM0NzU3IDIzLjkzMzY2NTYsMjEuODc3MzYyMSAyMy40MDU1MzI3LDIyLjQwNTUzMjcgQzIyLjg3NzM2MjEsMjIuOTMzNjY1NiAyMi4zNDc1NywyMy4yNTg1MDIyIDIxLjcyMjg2MSwyMy41MDEyODEyIEMyMS4xMTg1OTEsMjMuNzM2MTAzMyAyMC40MjgwMDIxLDIzLjg5NjcxMTUgMTkuNDE2ODM3OSwyMy45NDI4MzEyIEMxOC40MDM1NjE4LDIzLjk4OTA2NCAxOC4wODAwNDUxLDI0IDE1LjUwMDAxODksMjQgQzEyLjkxOTk1NDksMjQgMTIuNTk2NDM4MiwyMy45ODkwNjQgMTEuNTgzMTYyMSwyMy45NDI4MzEyIEMxMC41NzE5OTc5LDIzLjg5NjcxMTUgOS44ODE0MDkwMiwyMy43MzYxMDMzIDkuMjc3MTM5MDIsMjMuNTAxMjgxMiBDOC42NTI0MzAwMywyMy4yNTg1MDIyIDguMTIyNjM3OSwyMi45MzM2NjU2IDcuNTk0NDY3MywyMi40MDU1MzI3IEM3LjA2NjMzNDQyLDIxLjg3NzM2MjEgNi43NDE0OTc4MSwyMS4zNDc1NyA2LjQ5ODc1NjU1LDIwLjcyMjg2MSBDNi4yNjM4OTY3NSwyMC4xMTg1OTEgNi4xMDMyODg1NCwxOS40MjgwMDIxIDYuMDU3MTY4ODMsMTguNDE2ODM3OSBDNi4wMTA5MzU5OSwxNy40MDM1NjE4IDYsMTcuMDgwMDQ1MSA2LDE0LjUwMDAxODkgQzYsMTEuOTE5OTU0OSA2LjAxMDkzNTk5LDExLjU5NjQzODIgNi4wNTcxNjg4MywxMC41ODMxNjIxIEM2LjEwMzI4ODU0LDkuNTcxOTk3OTEgNi4yNjM4OTY3NSw4Ljg4MTQwOTAyIDYuNDk4NzU2NTUsOC4yNzcxMzkwMiBDNi43NDE0OTc4MSw3LjY1MjQzMDAzIDcuMDY2MzM0NDIsNy4xMjI2Mzc5IDcuNTk0NDY3Myw2LjU5NDQ2NzMgQzguMTIyNjM3OSw2LjA2NjMzNDQyIDguNjUyNDMwMDMsNS43NDE0OTc4MSA5LjI3NzEzOTAyLDUuNDk4NzU2NTUgQzkuODgxNDA5MDIsNS4yNjM4OTY3NSAxMC41NzE5OTc5LDUuMTAzMjg4NTQgMTEuNTgzMTYyMSw1LjA1NzE2ODgzIEMxMi41OTY0MzgyLDUuMDEwOTM1OTkgMTIuOTE5OTU0OSw1IDE1LjUwMDAxODksNSBaIE0xNS41MDAwMTk0LDYuNSBDMTIuODk0NDQ0OSw2LjUgMTIuNTg1ODAxMyw2LjUwOTk1NDk5IDExLjU1NjgzNDUsNi41NTY5MDIyOCBDMTAuNjA1NDE1OSw2LjYwMDI4NTkyIDEwLjA4ODcyNDYsNi43NTkyNTU5NCA5Ljc0NDg3MDU5LDYuODkyODkzMDIgQzkuMjg5MzgxMTgsNy4wNjk5MTM3NCA4Ljk2NDMxMzgxLDcuMjgxMzcwMjIgOC42MjI4NjEzOCw3LjYyMjg2MTM4IEM4LjI4MTM3MDIyLDcuOTY0MzEzODEgOC4wNjk5MTM3NCw4LjI4OTM4MTE4IDcuODkyODkzMDIsOC43NDQ4NzA1OSBDNy43NTkyNTU5NCw5LjA4ODcyNDYxIDcuNjAwMjg1OTIsOS42MDU0MTU5MyA3LjU1NjkwMjI4LDEwLjU1NjgzNDUgQzcuNTA5OTU0OTksMTEuNTg1ODAxMyA3LjUsMTEuODk0NDQ0OSA3LjUsMTQuNTAwMDE5NCBDNy41LDE3LjEwNTU1NTEgNy41MDk5NTQ5OSwxNy40MTQxOTg3IDcuNTU2OTAyMjgsMTguNDQzMTY1NSBDNy42MDAyODU5MiwxOS4zOTQ1ODQxIDcuNzU5MjU1OTQsMTkuOTExMjc1NCA3Ljg5Mjg5MzAyLDIwLjI1NTEyOTQgQzguMDY5OTEzNzQsMjAuNzEwNjE4OCA4LjI4MTQwODk1LDIxLjAzNTY4NjIgOC42MjI4NjEzOCwyMS4zNzcxMzg2IEM4Ljk2NDMxMzgxLDIxLjcxODYyOTggOS4yODkzODExOCwyMS45MzAwODYzIDkuNzQ0ODcwNTksMjIuMTA3MTA3IEMxMC4wODg3MjQ2LDIyLjI0MDc0NDEgMTAuNjA1NDE1OSwyMi4zOTk3MTQxIDExLjU1NjgzNDUsMjIuNDQzMDk3NyBDMTIuNTg1Njg1MSwyMi40OTAwNDUgMTIuODk0MjUxMiwyMi41IDE1LjUwMDAxOTQsMjIuNSBDMTguMTA1NzQ4OCwyMi41IDE4LjQxNDM1MzYsMjIuNDkwMDQ1IDE5LjQ0MzE2NTUsMjIuNDQzMDk3NyBDMjAuMzk0NTg0MSwyMi4zOTk3MTQxIDIwLjkxMTI3NTQsMjIuMjQwNzQ0MSAyMS4yNTUxMjk0LDIyLjEwNzEwNyBDMjEuNzEwNjE4OCwyMS45MzAwODYzIDIyLjAzNTY4NjIsMjEuNzE4NjI5OCAyMi4zNzcxMzg2LDIxLjM3NzEzODYgQzIyLjcxODYyOTgsMjEuMDM1Njg2MiAyMi45MzAwODYzLDIwLjcxMDYxODggMjMuMTA3MTA3LDIwLjI1NTEyOTQgQzIzLjI0MDc0NDEsMTkuOTExMjc1NCAyMy4zOTk3MTQxLDE5LjM5NDU4NDEgMjMuNDQzMDk3NywxOC40NDMxNjU1IEMyMy40OTAwNDUsMTcuNDE0MTk4NyAyMy41LDE3LjEwNTU1NTEgMjMuNSwxNC41MDAwMTk0IEMyMy41LDExLjg5NDQ0NDkgMjMuNDkwMDQ1LDExLjU4NTgwMTMgMjMuNDQzMDk3NywxMC41NTY4MzQ1IEMyMy4zOTk3MTQxLDkuNjA1NDE1OTMgMjMuMjQwNzQ0MSw5LjA4ODcyNDYxIDIzLjEwNzEwNyw4Ljc0NDg3MDU5IEMyMi45MzAwODYzLDguMjg5MzgxMTggMjIuNzE4NjI5OCw3Ljk2NDMxMzgxIDIyLjM3NzEzODYsNy42MjI4NjEzOCBDMjIuMDM1Njg2Miw3LjI4MTM3MDIyIDIxLjcxMDYxODgsNy4wNjk5MTM3NCAyMS4yNTUxMjk0LDYuODkyODkzMDIgQzIwLjkxMTI3NTQsNi43NTkyNTU5NCAyMC4zOTQ1ODQxLDYuNjAwMjg1OTIgMTkuNDQzMTY1NSw2LjU1NjkwMjI4IEMxOC40MTQxOTg3LDYuNTA5OTU0OTkgMTguMTA1NTU1MSw2LjUgMTUuNTAwMDE5NCw2LjUgWiBNMTUuNTAwMDE3NCwxMCBDMTcuOTg1Mjk3NCwxMCAyMCwxMi4wMTQ3MDI2IDIwLDE0LjUwMDAxNzQgQzIwLDE2Ljk4NTI5NzQgMTcuOTg1Mjk3NCwxOSAxNS41MDAwMTc0LDE5IEMxMy4wMTQ3MDI2LDE5IDExLDE2Ljk4NTI5NzQgMTEsMTQuNTAwMDE3NCBDMTEsMTIuMDE0NzAyNiAxMy4wMTQ3MDI2LDEwIDE1LjUwMDAxNzQsMTAgWiBNMTUuNTAwMDE3OSwxNy41IEMxNy4xNTY4NjIsMTcuNSAxOC41LDE2LjE1Njg2MiAxOC41LDE0LjUwMDAxNzkgQzE4LjUsMTIuODQzMTM4IDE3LjE1Njg2MiwxMS41IDE1LjUwMDAxNzksMTEuNSBDMTMuODQzMTM4LDExLjUgMTIuNSwxMi44NDMxMzggMTIuNSwxNC41MDAwMTc5IEMxMi41LDE2LjE1Njg2MiAxMy44NDMxMzgsMTcuNSAxNS41MDAwMTc5LDE3LjUgWiBNMjEuNSw5LjI1MDAyMDY3IEMyMS41LDkuOTQwMzgzMDYgMjAuOTQwMzQxNywxMC41IDIwLjI0OTk3OTMsMTAuNSBDMTkuNTU5NjU4MywxMC41IDE5LDkuOTQwMzgzMDYgMTksOS4yNTAwMjA2NyBDMTksOC41NTk2NTgyOSAxOS41NTk2NTgzLDggMjAuMjQ5OTc5Myw4IEMyMC45NDAzNDE3LDggMjEuNSw4LjU1OTY1ODI5IDIxLjUsOS4yNTAwMjA2NyBaIiBpZD0iSW5zdGFncmFtIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTEpIj48L3BhdGg+DQogICAgPC9nPg0KPC9zdmc+ "
+                                alt="Ikuti kami di Instagram " style="width: 39px; display:inline; margin-right:20px; ">
+                        </a>
+                        <a data-click-event="footer_social_ig " href="https://sosial.page.link/YouTube" target="_blank " rel="noopener nofollow " data-lynx-mode="async ">
+                            <img class="_6voz _7f2d img " src="./logo-visual/cdnlogo_youtube-icon.svg " type="image/svg+xml " alt="Ikuti kami YouTube " style="width: auto; height:24px; display:inline; " href="https://www.youtube.com/channel/UCgyY6BngcAb7B7HOrad0hVw" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================ End footer Area ================= -->
+    <script src="vendors/jquery/jquery-3.2.1.min.js "></script>
+    <script src="Get Started.js "></script>
+    <script async src="https://cdn.ampproject.org/v0.js "></script>
+    <script src="vendors/bootstrap/bootstrap.bundle.min.js "></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js "></script>
+    <script src="js/jquery.ajaxchimp.min.js "></script>
+    <script src="js/mail-script.js "></script>
+    <script src="js/main.js "></script>
+    <script src="https://kit.fontawesome.com/b96e641f93.js " crossorigin="anonymous "></script>
+    <script src="script.js"></script>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <!-- Contacts Store JavaScript -->
+    <script type="text/javascript ">
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+    <scripts src="https://sigma-24.web.app/offline.js"></scripts>
+    <script>
+        let deferredPrompt;
+        const addBtn = document.querySelector('.add-button');
+        addBtn.style.display = 'block';
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later.
+            deferredPrompt = e;
+            // Update UI to notify the user they can add to home screen
+            addBtn.style.display = 'block';
+
+            addBtn.addEventListener('click', (e) => {
+                // hide our user interface that shows our A2HS button
+                addBtn.style.display = 'none';
+                // Show the prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    } else {
+                        console.log('User dismissed the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('./sw.js').then(function(registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
